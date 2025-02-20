@@ -1,0 +1,33 @@
+# dependencies
+/node_modules/
+
+# Astro related files
+/build/
+/.astro/
+
+# VS Code related files
+/.vscode/
+*.code-workspace
+
+# env files (can opt-in for committing if needed)
+.env*
+!.env.example
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# misc
+.DS_Store
+*.pem
+/bin/
+
+# Cursor files
+this.log
+milestone.md
+overview.md
+layout-ui.md
+
+# Repomix files
+*repomix*
+*-repo.xml

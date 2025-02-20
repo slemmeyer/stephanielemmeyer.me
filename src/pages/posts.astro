@@ -1,0 +1,42 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PostCard from '../components/PostCard.astro';
+import ArchiveLink from '../components/ArchiveLink.astro';
+import { allPosts } from '../data/posts';
+
+// Get recent posts (top 3)
+const recentPosts = [...allPosts]
+  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+  .slice(0, 3);
+
+// Get highlighted posts
+const highlightedPosts = allPosts.filter(post => post.highlighted);
+---
+
+<Layout title="Posts | Stephanie Lemmeyer">
+  <div class="prose prose-lg max-w-none">
+    <h1 class="text-4xl font-bold mb-8 text-primary">Blog</h1>
+    
+    <section class="mb-12">
+      <h2 class="text-2xl font-semibold mb-4 text-primary">Recent Posts</h2>
+      <ul class="space-y-4">
+        {recentPosts.map(post => (
+          <PostCard {...post} />
+        ))}
+      </ul>
+      <ArchiveLink href="/posts/archive" label="View all posts in the archive" />
+    </section>
+
+    {highlightedPosts.length > 0 && (
+      <section>
+        <h2 class="text-2xl font-semibold mb-4 text-primary">Highlights</h2>
+        <p class="text-text mb-6">Featured articles and comprehensive guides on software development and technology.</p>
+        <ul class="space-y-4">
+          {highlightedPosts.map(post => (
+            <PostCard {...post} />
+          ))}
+        </ul>
+      </section>
+    )}
+  </div>
+</Layout>

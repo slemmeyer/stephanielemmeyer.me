@@ -1,0 +1,59 @@
+---
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+import SEO from '../components/SEO.astro';
+import '../styles/transitions.css';
+
+// Define default metadata
+const defaultMeta = {
+  siteName: "Stephanie Lemmeyer",
+  description: "Personal website for Stephanie Lemmeyer",
+  image: "/images/preview-profile.png",
+  type: "website",
+  locale: "en",
+};
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  type?: 'website' | 'article';
+  publishedTime?: string;
+  modifiedTime?: string;
+  author?: string;
+  noIndex?: boolean;
+}
+
+const props = Astro.props;
+
+// Construct full title with site name
+const fullTitle = props.title 
+  ? `${props.title} | ${defaultMeta.siteName}`
+  : defaultMeta.siteName;
+
+// Get canonical URL - handle case where Astro.site is undefined
+const canonicalURL = Astro.site 
+  ? new URL(Astro.url.pathname, Astro.site)
+  : new URL(Astro.url.pathname, 'http://localhost:4321/');
+
+// Also update the og:image and twitter:image URLs to handle undefined Astro.site
+const imageURL = Astro.site
+  ? new URL(props.image || defaultMeta.image, Astro.site)
+  : new URL(props.image || defaultMeta.image, 'http://localhost:4321/');
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <SEO {...props} />
+  </head>
+  <body class="min-h-screen bg-background">
+    <Navigation />
+    <main class="max-w-7xl mx-auto px-6 py-12">
+      <div class="page-content">
+        <slot />
+      </div>
+    </main>
+    <Footer />
+  </body>
+</html>

@@ -1,0 +1,68 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const skills = {
+  infrastructure: {
+    title: "Infrastructure & Cloud",
+    items: ["AWS (Primarily)", "Azure", "GCP"]
+  },
+  development: {
+    title: "Development",
+    items: ["JavaScript", "TypeScript", "Node.js", "Bash", "Python"]
+  },
+  automation: {
+    title: "Automation & DevOps",
+    items: ["Chef", "Ansible", "GitHub Actions", "Terraform", "Pulumi"]
+  },
+  monitoring: {
+    title: "Monitoring & Observability",
+    items: ["Prometheus", "Grafana"]
+  },
+  frontend: {
+    title: "Frontend",
+    items: ["Astro", "HTML/CSS"]
+  },
+  philosophies: {
+    title: "Philosophies",
+    items: ["Platform/Tool Agnosticism", "Simple is Best", "Be a Jockey Not a Farmer"]
+  }
+};
+---
+
+<Layout 
+  title="About"
+  description="Learn more about Stephanie Lemmeyer, an generalist engineer focused on building practical, maintainable systems."
+  image="/images/preview-profile.png"
+>
+  <div class="prose prose-lg max-w-none">
+    <h1 class="text-4xl font-bold mb-6">About Me</h1>
+    
+    <div class="grid gap-8">
+      <section>
+        <p class="text-gray-700">
+          I'm an engineer who focuses on building practical, maintainable systems. I prefer simple solutions over complex ones and choose tools based on fit rather than popularity. I have a strong background in infrastructure, automation, and troubleshooting, with an emphasis on reducing operational friction. My approach is hands-on—digging into problems, finding the root cause, and making things work reliably. I believe good infrastructure isn't just about uptime but also about being understandable and manageable.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">Skills & Technologies</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {Object.values(skills).map(category => (
+            <div class="bg-white p-4 rounded shadow-sm">
+              <h3 class="font-semibold">{category.title}</h3>
+              <p class="text-gray-600">{category.items.join(", ")}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">Interests</h2>
+        <p class="text-gray-700">
+          Outside of technology, I'm passionate about music, video games, movies, and aesthetics/fashion. 
+          I enjoy exploring how these different domains can inspire and influence technical work, whether through design, storytelling, or way-of-thinking.
+        </p>
+      </section>
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,40 @@
+---
+const navItems = [
+  { path: '/', label: 'Home' },
+  { path: '/about', label: 'About' },
+  { path: '/posts', label: 'Posts' }
+];
+
+const currentPath = Astro.url.pathname;
+const isActive = (path: string) => {
+  if (path === '/') {
+    return currentPath === '/';
+  }
+  return currentPath.startsWith(path);
+};
+---
+
+<header class="fixed w-full bg-background/80 backdrop-blur-sm z-50">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <a href="/" class="text-xl font-semibold text-primary">Stephanie Lemmeyer</a>
+    <nav>
+      <ul class="flex space-x-8">
+        {navItems.map(({ path, label }) => (
+          <li>
+            <a
+              href={path}
+              class:list={[
+                'nav-link text-secondary hover:text-primary transition-colors duration-300',
+                isActive(path) && 'text-primary font-medium active'
+              ]}
+              aria-current={isActive(path) ? 'page' : undefined}
+            >
+              {label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
+<div class="h-16"></div> <!-- Spacer for fixed header -->
