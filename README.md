@@ -42,12 +42,15 @@ pnpm run dev
 - `pnpm run preview` - Preview production build locally
 
 ## Project Structure
+
+```
 src/
 ├── components/ # Reusable Astro components
 ├── layouts/ # Page layouts
 ├── pages/ # Route pages
 ├── data/ # Data files
 └── styles/ # Global styles
+```
 
 ## License
 
