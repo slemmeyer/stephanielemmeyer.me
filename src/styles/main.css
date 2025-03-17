@@ -1,0 +1,12 @@
+/* Import the coolcat theme */
+@import "./coolcat-theme.css";
+
+/* Import transitions */
+@import "./transitions.css";
+
+/* Add any additional global styles here */
+
+/* Force the coolcat theme */
+:root {
+  color-scheme: light;
+}
