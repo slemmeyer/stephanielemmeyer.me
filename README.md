@@ -52,6 +52,15 @@ src/
 └── styles/ # Global styles
 ```
 
+## Branch Overview
+
+- **main**: Production branch. Contains the live, published version of the site.
+- **develop**: Integration branch for ongoing functional/feature related development before merging to main.
+- **content**: Staging branch for finalized posts ready to be published. Only contains post content; no code.
+- **post_drafts**: Local-only branch for drafting and editing posts. Not pushed to remote; used for work-in-progress and drafts that are not yet ready for publication.
+
 ## License
 
-MIT License
+Code: MIT License
+
+Content (such as blog posts, articles, and images) is not covered by the MIT License unless otherwise specified.
