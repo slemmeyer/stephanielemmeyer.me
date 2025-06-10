@@ -14,11 +14,29 @@ export default {
         DEFAULT: {
           css: {
             color: '#334155',
+            p: {
+              marginTop: '1em',
+              marginBottom: '1em',
+            },
+            ul: {
+              marginTop: '1em',
+              marginBottom: '1em',
+              paddingLeft: '1.25em',
+              listStyleType: 'disc',
+            },
+            li: {
+              marginTop: '0.25em',
+              marginBottom: '0.25em',
+            },
             h1: {
               color: '#1E293B',
+              marginTop: '1.5em',
+              marginBottom: '0.5em',
             },
             h2: {
               color: '#1E293B',
+              marginTop: '1.25em',
+              marginBottom: '0.5em',
             },
             h3: {
               color: '#1E293B',
